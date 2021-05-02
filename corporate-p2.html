@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>preview-page</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width">
+	<style type="text/css">
+		body{
+			background-color: grey;
+		}
+		main{
+	width: 100%;
+	display: grid;
+	align-items: center;
+	text-align: center;
+	grid-template-columns: 25% 50% 25%;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"title title title"
+	"one two three"
+	"one two three"
+	"zero zero zero"
+}
+#title{
+	grid-area: title;
+}
+#zero{
+	grid-area: zero;
+}
+#one{
+	grid-area: one;
+}
+#two{
+	grid-area: two;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	border: 1px solid #fff;
+	width: 90%;
+	height: 80vh;
+	margin-top: 5vh;
+	margin-left: 5%;
+	margin-right: 5%;
+	background-color: yellow;
+}
+#three{
+	grid-area: three;
+}
+#zero div button{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 2%;
+	padding-left: 2%;
+	margin-right: 3%;
+	margin-left: 3%;
+	color: #000;
+	background-color: #fff;
+	border: 1px solid #000;
+	transition:  0.6s ease;
+}
+#zero div button:hover{
+	color: #fff;
+	border: 1px solid #fff;
+}
+#zero{
+	margin-top: 3%;
+	margin-bottom: 5%;
+}
+#color{
+	margin-bottom: 10vh;
+	justify-content: center;
+}
+#font{
+	margin-bottom: 20vh;
+}
+
+#display h1{
+	padding-top: 6%;
+	padding-right: 15%;
+}
+#display{
+	font-size: 1.5em;
+}
+#display h1, #display h2,#display h3,#display h4{
+	font-family: Arial;
+	}
+
+img{
+	position: absolute; width: 90%; height: 80vh;margin-left: 5%;margin-right: 5%;align-items: center;
+}
+
+@media only screen and (max-width: 700px){
+body{
+		width: 100%;
+		display: grid;
+		align-items: center;
+		text-align: center;
+		grid-template-columns: 30% 70%;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"title title "	
+		"two two"
+		"zero zero"
+	}
+	#title{
+		grid-area: title;
+	}
+	#zero{
+		grid-area: zero;
+	}
+	#one{
+		grid-area: one;
+
+	}
+	#two{
+		grid-area: two;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		border: 1px solid #fff;
+		width: 60vh;
+		height: 80vh;
+		margin-top: 5vh;
+		margin-left: 5%;
+		margin-right: 5%;
+		background-color: yellow;
+
+	}
+	#three{
+		grid-area: three;
+		margin-bottom: 20px;
+	}
+	.main{
+		margin-top: 3vh;
+		border: 1px solid #fff;
+		transition:  0.7s ease;
+		padding: 2vh 2vh;
+	}
+	#display h1{
+		padding-top: 25vh;
+	}
+	#display{
+	font-size: 1em;
+	}
+	#display h1, #display h2,#display h3,#display h4{
+	font-family: Arial;
+	}
+	img{
+		margin-top: 5vh;
+		margin-left: -6vh;
+		width: 100%; 
+	}
+}
+	</style>
+</head>
+<body onload="loadco()">
+	<div>
+		<img src="corporate2.png">
+	<div id="two"><!-- <img src="design1.png" style="position: absolute; width: 100%; height: 100%;"> -->
+		
+		<div id="display">
+							<h1 id="dgreetingco"></h1><br>
+							<h2 id="dnameco"></h2><br>
+							<h2 id="ddateco"></h2><br>
+							<h3 id="dtimeco"></h3>
+							<h3 id="daddress1co"></h3><br>
+							<h4 id="daddress2co"></h4><br>
+							<h2 id="daddress3co"></h2>
+		</div>
+
+	</div>
+</div>
+	<div id="zero" style="">
+		<div>
+			<a href="corporate2.html"><button>back to editing</button></a>
+			<a onclick="sendmail()"><button>Send the card to the receiver</button></a>
+			<a onclick="favouriteco()"><button>mark as favourite content</button></a>							
+		</div>
+	</div>
+
+<script type="text/javascript">
+	function favouriteco(){
+			var greetingco = document.getElementById("greetingco");
+			var nameco = document.getElementById("nameco");
+			var dateco = document.getElementById("dateco");
+			var timeco = document.getElementById("timeco");
+			var address1co = document.getElementById("address1co");
+			var address2co = document.getElementById("address2co");
+			var address3co = document.getElementById("address3co");
+
+			localStorage.setItem("fgreetingco",greetingco.value);
+			localStorage.setItem("fnameco",nameco.value);
+			localStorage.setItem("fdateco",dateco.value);
+			localStorage.setItem("ftimeco",timeco.value);
+			localStorage.setItem("faddress1co",address1co.value);
+			localStorage.setItem("faddress2co",address2co.value);
+			localStorage.setItem("faddress3co",address3co.value);
+
+			let fcolorPickerco = document.getElementById("colorBGco");
+			localStorage.setItem("fbgColorco",colorPickerco.value)
+			
+			let fcolorPickerTco = document.getElementById("colorTitleco");
+			localStorage.setItem("ftColorco",colorPickerTco.value);;
+			// var two = document.getElementById("two");
+			// var color = localStorage.getItem("fbgColor");
+			// two.style.backgroundColor = color;
+
+		}
+	function loadco(){
+			// var greetingfo = document.getElementById("greetingfo");
+			// var namefo = document.getElementById("namefo");
+			// var datefo = document.getElementById("datefo");
+			// var timefo = document.getElementById("timefo");
+			// var address1fo = document.getElementById("address1fo");
+			// var address2fo = document.getElementById("address2fo");
+			// var address3fo = document.getElementById("address3fo");			
+
+			// let colorPickerco = document.getElementById("colorBGco");
+			// colorPickerco.value = localStorage.getItem("fbgColorco");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("bgColorco");
+			two.style.backgroundColor = color;
+
+			// let colorPickerTco = document.getElementById("colorTitleco");
+			// colorPickerTco.value = localStorage.getItem("ftColorco");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("tColorco");
+			display.style.color = tcolor;
+
+			var dgreetingco = document.getElementById("dgreetingco");
+			var dnameco = document.getElementById("dnameco");
+			var ddateco = document.getElementById("ddateco");
+			var dtimeco = document.getElementById("dtimeco");
+			var daddress1co = document.getElementById("daddress1co");
+			var daddress2co = document.getElementById("daddress2co");
+			var daddress3co = document.getElementById("daddress3co");
+
+			dgreetingco.innerHTML = localStorage.getItem("greetingco");
+			dnameco.innerHTML = "Event: "+localStorage.getItem("nameco");
+			ddateco.innerHTML= localStorage.getItem("dateco") +" , You Are invited!";
+			dtimeco.innerHTML= "Date: "+localStorage.getItem("timeco");
+			daddress1co.innerHTML= "Time: "+localStorage.getItem("address1co");
+			daddress2co.innerHTML= "Location: "+localStorage.getItem("address2co");
+			daddress3co.innerHTML= "From: "+ localStorage.getItem("address3co");
+
+			// greetingfo.value = localStorage.getItem("greetingfo");
+			// namefo.value = localStorage.getItem("namefo");
+			// datefo.value= localStorage.getItem("datefo");
+			// timefo.value= localStorage.getItem("timefo");
+			// address1fo.value= localStorage.getItem("address1fo");
+			// address2fo.value= localStorage.getItem("address2fo");
+			// address3fo.value= localStorage.getItem("address3fo");
+	
+	}
+	function sendmail(){
+			var sendmail = localStorage.getItem("date")
+
+
+			if (sendmail == null){
+				alert("the receiver name cannot be empty! don't forget to press 'save & preview' button")
+			}else{
+				alert("you have successfully send your e-invitation card to: " + sendmail)
+			}
+		}
+
+</script>
+
+<!-- reference:
+design img: from powerpoint -->
+</body>
+</html>

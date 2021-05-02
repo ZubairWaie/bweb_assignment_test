@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customize card</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Freckle+Face&family=Goblin+One&family=New+Tegomin&display=swap" rel="stylesheet">  <!-- google font -->
+	<meta name="viewport" content="width=device-width">
+	<style type="text/css">
+		main{
+	width: 100%;
+	display: grid;
+	align-items: center;
+	text-align: center;
+	grid-template-columns: 25% 25% 50%;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"title title title"
+	"zero zero zero"
+	"one three two"
+	"one three two"
+}
+#title{
+	grid-area: title;
+}
+#zero{
+	grid-area: zero;
+}
+#one{
+
+	grid-area: one;
+}
+#two{
+	grid-area: two;
+	height: 55vh;
+}
+#three{
+	grid-area: three;
+}
+#three form{
+	/*margin-bottom: 3vh;*/
+	justify-content: center;
+		}
+#three input{
+		margin-bottom: 2vh;
+	}
+#zero div button{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 2%;
+	padding-left: 2%;
+	margin-right: 3%;
+	margin-left: 3%;
+	color: #000;
+	background-color: #fff;
+	border: 1px solid #000;
+	transition:  0.6s ease;
+}
+#zero div button:hover{
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #fff;
+}
+#zero{
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+#color{
+	justify-content: center;
+}
+#font{
+	margin-bottom: 20vh;
+}
+#display h1, #display h2,#display h3,#display h4{
+	font-family: Lucida Handwriting;
+}
+#display h1{
+	padding-top: 8%;
+}
+#design1, #design2, #design3,#design4{
+	display: none;
+}
+@media only screen and (max-width: 700px){
+main{
+
+		width: 100%;
+		display: grid;
+		align-items: center;
+		text-align: center;
+		grid-template-columns: 50% 50%;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"title title "
+		"zero zero"
+		"one one"
+		"two two"
+		"three three"
+	}
+	#title{
+		grid-area: title;
+	}
+	#zero{
+		grid-area: zero;
+	}
+	#one{
+		grid-area: one;
+	}
+	#two{
+		grid-area: two;
+		width: 50vh;
+		height: 50vh;
+	}
+	#three{
+		grid-area: three;
+		margin-bottom: 20px;
+	}
+	.main{
+		margin-top: 3vh;
+		border: 1px solid #fff;
+		transition:  0.7s ease;
+		padding: 2vh 2vh;
+	}
+	#color{
+		margin-bottom: 4vh;
+		justify-content: center;
+	}
+	#font{
+		margin-bottom: 3vh;
+	}
+	#display{
+		font-size: 90%;
+	}
+
+	#display h1{
+		padding-top: 10%;
+	}
+	#three form{
+		margin-top: 3vh;
+		margin-bottom: 3vh;
+		justify-content: center;
+	}
+	#three input{
+		margin-bottom: 3vh;
+	}
+	#display h1, #display h2,#display h3,#display h4{
+	font-family: Lucida Handwriting;
+	}
+}
+	</style>
+</head>
+<body onload="loadpagecuz()">
+	<div class="container">
+		<div class="navbar">
+			<img src="logo-white.png" class="logo">
+			<nav>
+				<ul id="menuList">
+					<li><a href="index.html">Home</a></li>
+					<li id="active"><a href="create_e-card.html">Create E-Card</a></li>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+			<img src="menu.png" class="menu-icon" onclick="togglemenu()">
+		</div>
+
+		<main>
+			<div id="title">
+				<h1>Create Your Own Card</h1>
+				<h5>"e-invitation card"</h5>
+			</div>
+					<div id="zero">
+						<div>
+							<a href="create_e-card.html"><button>go back to choose template</button></a>
+							<!-- <a href="#"><button>full preview</button></a> -->
+							<a onclick="sendmailcuz()"><button>Send the card to the receiver</button></a>						
+						</div>
+					</div>
+
+					<div id="one">
+
+						<div id="color">
+							<div><label for="colorBG"><h4>choose card color: </h4></label><br><input type="color" value="#74c4ec" id="colorBGcuz"></div><br>
+							<div><label for="colorTitle"><h4>choose text color: </h4></label><br><input type="color" value="#4f4f4f" id="colorTitlecuz"></div>
+						</div><br>
+						<!-- <div>
+							<label><h4>choose animation: </h4></label>
+							<select>
+								<option value="0">please select animation</option>
+								<option id= "1" value="1">ballons</option>
+								<option id= "2" value="2">bubbles</option>	
+							</select>
+						</div><br> -->
+						<div>
+							<label><h4>choose Background: </h4></label><br>
+								<button name="bckgrnd" value="1" onclick="changeBackground(this.value)">design 1</button >
+								<button name="bckgrnd" value="2" onclick="changeBackground(this.value)">design 2</button >
+								<button name="bckgrnd" value="3" onclick="changeBackground(this.value)">design 3</button >
+								<button name="bckgrnd" value="4" onclick="changeBackground(this.value)">design 4</button >			
+						</div><br>
+						<div>
+							<label><h4>choose font-family: </h4></label><br>							
+							<input type="radio" name="fontF" value="1" onclick="changeFont(this.value)" checked="">Lucida Handwriting<br>
+							<input type="radio" name="fontF" value="2" onclick="changeFont(this.value)">New Tegomin<br>
+							<input type="radio" name="fontF" value="3" onclick="changeFont(this.value)">Freckle Face<br>
+							<input type="radio" name="fontF" value="4" onclick="changeFont(this.value)">Caveat<br>
+						</div>				
+					</div>
+				<div>
+					<div id="design1"><img src="formal1.png" style="position: absolute; width: 45%; height: 55vh;margin-left: -48vh;"></div>
+					<div id="design2"><img src="redfloral.png" style="position: absolute; width: 45%; height: 55vh;margin-left: -48vh;"></div>
+					<div id="design3"><img src="corporate1.png" style="position: absolute; width: 45%; height: 55vh;margin-left: -48vh;"></div>
+					<div id="design4"><img src="corporate2.png" style="position: absolute; width: 45%; height: 55vh;margin-left: -48vh;"></div>
+					<div id="two">
+						
+						<div id="display">
+							<h1 id="dgreetingcuz"></h1><br>
+							<h2 id="dnamecuz"></h2><br>
+							<h3 id="ddatecuz"></h3><br>
+							<h4 id="dtimecuz"></h4>
+							<h4 id="daddress1cuz"></h4><br>
+							<h4 id="daddress2cuz"></h4><br>
+							<h3 id="daddress3cuz"></h3>
+						</div>
+					</div>
+				</div>
+					<div id="three" >
+						<div>
+							<label><h4>choose Greeting: </h4></label><br>				
+							<button onclick="chGreet(this.value)" value="1"> ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ </button>
+							<button onclick="chGreet(this.value)" value="2">Good morning/afternoon/evening</button>
+							<button onclick="chGreet(this.value)" value="3">Salam Sejahtera</button>
+						</div>
+						<br><br>
+							<form id="form">
+								<!-- <label>Greeting: </label>			
+								<input type="text" id="greeting" placeholder="Enter greeting..." ><br> -->
+								<label>Event: </label>
+								<input type="text" id="namecuz" placeholder="Enter Event..."><br>
+								<label>Receiver name: </label>
+								<input type="text" id="datecuz" placeholder="Enter name..."><br>
+								<label>Date: </label>
+								<input type="date" id="timecuz" placeholder="Enter time..."><br>
+								<label>Time: </label>
+								<input type="time" id="address1cuz" placeholder="Enter name..."><br>
+								<label>Location: </label>
+								<input type="address" id="address2cuz" placeholder="Enter Address..."><br>
+								<label>Your Name: </label>
+								<input type="text" id="address3cuz" placeholder="Enter name..."><br>
+							</form>
+
+							<button onclick="previewfcuz()">save & preview</button>
+							<button onclick="clearformcuz()">clear</button>
+							<button onclick="loadpreviousfcuz()">load previous text</button>							
+							<button onclick="loadfcuz()">load favourite content</button>
+							<button onclick="favouritecuz()">mark as favourite content</button>
+						</div>
+					</div>
+
+		</main>
+	</div>
+
+	<script type="text/javascript">
+
+		function changeBackground(value){
+			var design1 = document.getElementById("design1");
+			var design2 = document.getElementById("design2");
+			var design3 = document.getElementById("design3");
+			var design4 = document.getElementById("design4");
+
+			if(value==1){
+				design1.style.display = 'block';
+				design2.style.display = 'none';
+				design3.style.display = 'none';
+				design4.style.display = 'none';
+			}
+			else if(value==2){	
+				design2.style.display = 'block';
+				design1.style.display = 'none';
+				design3.style.display = 'none';
+				design4.style.display = 'none';
+			}
+			else if(value==3){	
+				design3.style.display = 'block';
+				design2.style.display = 'none';
+				design1.style.display = 'none';
+				design4.style.display = 'none';
+			}
+			else if(value==4){	
+				design4.style.display = 'block';
+				design2.style.display = 'none';
+				design3.style.display = 'none';
+				design1.style.display = 'none';
+			}
+
+		}
+
+
+		localStorage.setItem("chGreet1"," ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ ");
+		localStorage.setItem("chGreet2","Good morning/afternoon/evening");
+		localStorage.setItem("chGreet3","Salam Sejahtera");
+		//khairul hasri ajar bukan copy paste
+		function chGreet(value){
+			var dgreeting = document.getElementById("dgreetingcuz");
+			if (value==1){
+				dgreeting.innerHTML = localStorage.getItem("chGreet1");
+			}
+			else if (value==2){
+				dgreeting.innerHTML = localStorage.getItem("chGreet2");
+			}
+			else if (value==3){
+				dgreeting.innerHTML = localStorage.getItem("chGreet3");
+			}
+		}
+
+		function changeFont(value){
+			var dgreeting = document.getElementById("dgreetingcuz")
+			var dname = document.getElementById("dnamecuz");
+			var ddate = document.getElementById("ddatecuz");
+			var dtime = document.getElementById("dtimecuz");
+			var daddress1 = document.getElementById("daddress1cuz");
+			var daddress2 = document.getElementById("daddress2cuz");
+			var daddress3 = document.getElementById("daddress3cuz");
+			if (value==1){
+				dgreeting.style.fontFamily = "Lucida Handwriting";
+				dname.style.fontFamily = "Lucida Handwriting";
+				ddate.style.fontFamily = "Lucida Handwriting";
+				dtime.style.fontFamily = "Lucida Handwriting";
+				daddress1.style.fontFamily = "Lucida Handwriting";
+				daddress2.style.fontFamily = "Lucida Handwriting";
+				daddress3.style.fontFamily = "Lucida Handwriting";
+			}
+			else if (value==3){
+				dgreeting.style.fontFamily = "New Tegomin";
+				dname.style.fontFamily = "New Tegomin";
+				ddate.style.fontFamily = "New Tegomin";
+				dtime.style.fontFamily = "New Tegomin";
+				daddress1.style.fontFamily = "New Tegomin";
+				daddress2.style.fontFamily = "New Tegomin";
+				daddress3.style.fontFamily = "New Tegomin";
+			}
+			else if (value==2){
+				dgreeting.style.fontFamily = "Freckle Face";
+				dname.style.fontFamily = "Freckle Face";
+				ddate.style.fontFamily = "Freckle Face";
+				dtime.style.fontFamily = "Freckle Face";
+				daddress1.style.fontFamily = "Freckle Face";
+				daddress2.style.fontFamily = "Freckle Face";
+				daddress3.style.fontFamily = "Freckle Face";
+			}
+			else if (value==4){
+				dgreeting.style.fontFamily = "Caveat";
+				dname.style.fontFamily = "Caveat";
+				ddate.style.fontFamily = "Caveat";
+				dtime.style.fontFamily = "Caveat";
+				daddress1.style.fontFamily = "Caveat";
+				daddress2.style.fontFamily = "Caveat";
+				daddress3.style.fontFamily = "Caveat";
+			}
+		}
+		
+		
+		var menuList = document.getElementById("menuList");
+
+		menuList.style.maxHeight = "0px";
+
+		function togglemenu(){
+
+			if(menuList.style.maxHeight == "0px"){
+				menuList.style.maxHeight = "130px";
+			}
+			else{
+				menuList.style.maxHeight = "0px";
+			}
+		}
+
+		function sendmailcuz(){
+			var sendmail = localStorage.getItem("datecuz")
+
+
+			if (sendmail == null){
+				alert("the receiver name cannot be empty! don't forget to press 'save & preview' button")
+			}else{
+				alert("you have successfully send your e-invitation card to: " + sendmail)
+			}
+		}
+		
+		
+		let colorPickercuz = document.getElementById("colorBGcuz");
+		let box = document.getElementById("two");
+		let output = document.getElementById("two");
+
+		box.style.backgroundColor = colorPickercuz.value;
+
+		colorPickercuz.addEventListener("input", function(event) {
+  		box.style.backgroundColor = event.target.value;
+		}, false);
+
+
+
+		let colorPickerTcuz = document.getElementById("colorTitlecuz");
+		let boxT = document.getElementById("display");
+		let outputC = document.getElementById("display");
+
+		boxT.style.color = colorPickerTcuz.value;
+
+		colorPickerTcuz.addEventListener("input", function(event) {
+  		boxT.style.color = event.target.value;
+		}, false);
+
+
+
+		function allowDrop(ev) {
+ 		 	ev.preventDefault();
+		}
+
+		function drag(ev) {
+		  	ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+		  	ev.preventDefault();
+		  	var data = ev.dataTransfer.getData("text");
+ 			ev.target.appendChild(document.getElementById(data));
+		}
+
+
+		function previewfcuz(){
+
+			// var greeting = document.getElementById("greeting");
+			var namecuz = document.getElementById("namecuz");
+			var datecuz = document.getElementById("datecuz");
+			var timecuz = document.getElementById("timecuz");
+			var address1cuz = document.getElementById("address1cuz");
+			var address2cuz = document.getElementById("address2cuz");
+			var address3cuz = document.getElementById("address3cuz");
+
+
+			let colorPickercuz = document.getElementById("colorBGcuz");
+			localStorage.setItem("bgColorcuz",colorPickercuz.value)
+			
+			let colorPickerTcuz = document.getElementById("colorTitlecuz");
+			localStorage.setItem("tColorcuz",colorPickerTcuz.value);
+
+			// localStorage.setItem("greeting",greeting.value);
+			localStorage.setItem("namecuz",namecuz.value);
+			localStorage.setItem("datecuz",datecuz.value);
+			localStorage.setItem("timecuz",timecuz.value);
+			localStorage.setItem("address1cuz",address1cuz.value);
+			localStorage.setItem("address2cuz",address2cuz.value);
+			localStorage.setItem("address3cuz",address3cuz.value);
+
+
+			// var dgreeting = document.getElementById("dgreeting");
+			var dnamecuz = document.getElementById("dnamecuz");
+			var ddatecuz = document.getElementById("ddatecuz");
+			var dtimecuz = document.getElementById("dtimecuz");
+			var daddress1cuz = document.getElementById("daddress1cuz");
+			var daddress2cuz = document.getElementById("daddress2cuz");
+			var daddress3cuz = document.getElementById("daddress3cuz");
+
+			// dgreeting.innerHTML = localStorage.getItem("greeting");
+			dnamecuz.innerHTML = "Event: "+localStorage.getItem("namecuz");
+			ddatecuz.innerHTML= localStorage.getItem("datecuz") +" , You Are invited!";
+			dtimecuz.innerHTML= "Date: "+localStorage.getItem("timecuz");
+			daddress1cuz.innerHTML= "Time: "+localStorage.getItem("address1cuz");
+			daddress2cuz.innerHTML= "Location: "+localStorage.getItem("address2cuz");
+			daddress3cuz.innerHTML= "From: "+ localStorage.getItem("address3cuz");
+
+
+			
+			// greeting.value = localStorage.getItem("greeting");
+			// name.value = localStorage.getItem("name");
+			// date.value= localStorage.getItem("date");
+			// time.value= localStorage.getItem("time");
+			// address1.value= localStorage.getItem("address1");
+			// address2.value= localStorage.getItem("address2");
+			// address3.value= localStorage.getItem("address3");
+
+		}
+		function loadpagecuz(){
+			// var greeting = document.getElementById("greeting");
+			var namecuz = document.getElementById("namecuz");
+			var datecuz = document.getElementById("datecuz");
+			var timecuz = document.getElementById("timecuz");
+			var address1cuz = document.getElementById("address1cuz");
+			var address2cuz = document.getElementById("address2cuz");
+			var address3cuz = document.getElementById("address3cuz");			
+
+			let colorPickercuz = document.getElementById("colorBGcuz");
+			colorPickercuz.value = localStorage.getItem("bgColorcuz");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("bgColorcuz");
+			two.style.backgroundColor = color;
+
+			let colorPickerTcuz = document.getElementById("colorTitlecuz");
+			colorPickerTcuz.value = localStorage.getItem("tColorcuz");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("tColorcuz");
+			display.style.color = tcolor;
+
+			// var dgreeting = document.getElementById("dgreeting");
+			var dnamecuz = document.getElementById("dnamecuz");
+			var ddatecuz = document.getElementById("ddatecuz");
+			var dtimecuz = document.getElementById("dtimecuz");
+			var daddress1cuz = document.getElementById("daddress1cuz");
+			var daddress2cuz = document.getElementById("daddress2cuz");
+			var daddress3cuz = document.getElementById("daddress3cuz");
+
+			// dgreeting.innerHTML = localStorage.getItem("greeting");
+			dnamecuz.innerHTML = "Event: "+localStorage.getItem("namecuz");
+			ddatecuz.innerHTML= localStorage.getItem("datecuz") +" , You Are invited!";
+			dtimecuz.innerHTML= "Date: "+localStorage.getItem("timecuz");
+			daddress1cuz.innerHTML= "Time: "+localStorage.getItem("address1cuz");
+			daddress2cuz.innerHTML= "Location: "+localStorage.getItem("address2cuz");
+			daddress3cuz.innerHTML= "From: "+ localStorage.getItem("address3cuz");
+
+			// greeting.value = localStorage.getItem("greeting");
+			namecuz.value = localStorage.getItem("namecuz");
+			datecuz.value= localStorage.getItem("datecuz");
+			timecuz.value= localStorage.getItem("timecuz");
+			address1cuz.value= localStorage.getItem("address1cuz");
+			address2cuz.value= localStorage.getItem("address2cuz");
+			address3cuz.value= localStorage.getItem("address3cuz");
+
+		}
+		function clearformcuz(){
+			document.getElementById("form").reset();
+			document.getElementById("two").reset();
+		}
+
+		function loadpreviousfcuz(){
+			// var greeting = document.getElementById("greeting");
+			var namecuz = document.getElementById("namecuz");
+			var datecuz = document.getElementById("datecuz");
+			var timecuz = document.getElementById("timecuz");
+			var address1cuz = document.getElementById("address1cuz");
+			var address2cuz = document.getElementById("address2cuz");
+			var address3cuz = document.getElementById("address3cuz");
+
+			// greeting.value = localStorage.getItem("greeting");
+			namecuz.value = localStorage.getItem("namecuz");
+			datecuz.value= localStorage.getItem("datecuz");
+			timecuz.value= localStorage.getItem("timecuz");
+			address1cuz.value= localStorage.getItem("address1cuz");
+			address2cuz.value= localStorage.getItem("address2cuz");
+			address3cuz.value= localStorage.getItem("address3cuz");
+
+			let colorPickercuz = document.getElementById("colorBGcuz");
+			colorPickercuz.value = localStorage.getItem("bgColorcuz");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("bgColorcuz");
+			two.style.backgroundColor = color;
+
+			let colorPickerTcuz = document.getElementById("colorTitlecuz");
+			colorPickerTcuz.value = localStorage.getItem("tColorcuz");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("tColorcuz");
+			display.style.color = tcolor;
+		}
+		function favouritecuz(){
+			// var greeting = document.getElementById("greeting");
+			var namecuz = document.getElementById("namecuz");
+			var datecuz = document.getElementById("datecuz");
+			var timecuz = document.getElementById("timecuz");
+			var address1cuz = document.getElementById("address1cuz");
+			var address2cuz = document.getElementById("address2cuz");
+			var address3cuz = document.getElementById("address3cuz");
+
+			// localStorage.setItem("fgreeting",greeting.value);
+			localStorage.setItem("fnamecuz",namecuz.value);
+			localStorage.setItem("fdatecuz",datecuz.value);
+			localStorage.setItem("ftimecuz",timecuz.value);
+			localStorage.setItem("faddress1cuz",address1cuz.value);
+			localStorage.setItem("faddress2cuz",address2cuz.value);
+			localStorage.setItem("faddress3cuz",address3cuz.value);
+
+			let colorPickercuz = document.getElementById("colorBGcuz");
+			localStorage.setItem("fbgColorcuz",colorPickercuz.value);
+
+			let colorPickerTcuz = document.getElementById("colorTitlecuz");
+			localStorage.setItem("ftColorcuz",colorPickerTcuz.value);
+			// var two = document.getElementById("two");
+			// var color = localStorage.getItem("fbgColor");
+			// two.style.backgroundColor = color;
+
+		}
+		function loadfcuz(){
+			// var greeting = document.getElementById("greeting");
+			var namecuz = document.getElementById("namecuz");
+			var datecuz = document.getElementById("datecuz");
+			var timecuz = document.getElementById("timecuz");
+			var address1cuz = document.getElementById("address1cuz");
+			var address2cuz = document.getElementById("address2cuz");
+			var address3cuz = document.getElementById("address3cuz");
+
+			// greeting.value = localStorage.getItem("fgreeting");
+			namecuz.value = localStorage.getItem("fnamecuz");
+			datecuz.value= localStorage.getItem("fdatecuz");
+			timecuz.value= localStorage.getItem("ftimecuz");
+			address1cuz.value= localStorage.getItem("faddress1cuz");
+			address2cuz.value= localStorage.getItem("faddress2cuz");
+			address3cuz.value= localStorage.getItem("faddress3cuz");
+
+			let colorPickercuz = document.getElementById("colorBGcuz");
+			colorPickercuz.value = localStorage.getItem("fbgColorcuz");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("fbgColorcuz");
+			two.style.backgroundColor = color;
+
+			let colorPickerTcuz = document.getElementById("colorTitlecuz");
+			colorPickerTcuz.value = localStorage.getItem("ftColorcuz");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("ftColorcuz");
+			display.style.color = tcolor;
+
+		}
+		function dloadfcuz(){
+			// var dgreeting = document.getElementById("dgreeting");
+			var dnamecuz = document.getElementById("dnamecuz");
+			var ddatecuz = document.getElementById("ddatecuz");
+			var dtimecuz = document.getElementById("dtimecuz");
+			var daddress1cuz = document.getElementById("daddress1cuz");
+			var daddress2cuz = document.getElementById("daddress2cuz");
+			var daddress3cuz = document.getElementById("daddress3cuz");
+
+			// dgreeting.innerHTML = localStorage.getItem("greeting");
+			dnamecuz.innerHTML = "Event: "+localStorage.getItem("namecuz");
+			ddatecuz.innerHTML= localStorage.getItem("datecuz") +" , You Are invited!";
+			dtimecuz.innerHTML= "Date: "+localStorage.getItem("timecuz");
+			daddress1cuz.innerHTML= "Time: "+localStorage.getItem("address1cuz");
+			daddress2cuz.innerHTML= "Location: "+localStorage.getItem("address2cuz");
+			daddress3cuz.innerHTML= "From: "+ localStorage.getItem("address3cuz");
+
+    		let colorPickercuz = document.getElementById("colorBGcuz");
+			colorPickercuz.value = localStorage.getItem("fbgColorcuz");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("fbgColorcuz");
+			two.style.backgroundColor = color;
+
+			let colorPickerTcuz = document.getElementById("colorTitlecuz");
+			colorPickerTcuz.value = localStorage.getItem("ftColorcuz");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("ftColorcuz");
+			display.style.color = tcolor;
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>corporate card</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width">
+	<style type="text/css">
+		main{
+	width: 100%;
+	display: grid;
+	align-items: center;
+	text-align: center;
+	grid-template-columns: 25% 50% 25%;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"title title title"
+	"zero zero zero"
+	"one two three"
+	"one two three"
+}
+#title{
+	grid-area: title;
+}
+#zero{
+	grid-area: zero;
+}
+#one{
+
+	grid-area: one;
+}
+#two{
+	grid-area: two;
+	height: 100%;
+}
+#three{
+	grid-area: three;
+}
+#three form{
+	/*margin-bottom: 3vh;*/
+	justify-content: center;
+		}
+#three input{
+		margin-bottom: 2vh;
+	}
+#zero div button{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 2%;
+	padding-left: 2%;
+	margin-right: 3%;
+	margin-left: 3%;
+	color: #000;
+	background-color: #fff;
+	border: 1px solid #000;
+	transition:  0.6s ease;
+}
+#zero div button:hover{
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #fff;
+}
+#zero{
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+#color{
+	margin-bottom: 10vh;
+	justify-content: center;
+}
+#font{
+	margin-bottom: 20vh;
+}
+#display h1, #display h2,#display h3,#display h4{
+	font-family: Arial;
+}
+#display h1{
+	padding-top: 10%;
+}
+
+
+@media only screen and (max-width: 700px){
+main{
+
+		width: 100%;
+		display: grid;
+		align-items: center;
+		text-align: center;
+		grid-template-columns: 50% 50%;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"title title "
+		"zero zero"
+		"one one"
+		"two two"
+		"three three"
+	}
+	#title{
+		grid-area: title;
+	}
+	#zero{
+		grid-area: zero;
+	}
+	#one{
+		grid-area: one;
+	}
+	#two{
+		grid-area: two;
+		height: 50vh;
+	}
+	#three{
+		grid-area: three;
+		margin-bottom: 20px;
+	}
+	.main{
+		margin-top: 3vh;
+		border: 1px solid #fff;
+		transition:  0.7s ease;
+		padding: 2vh 2vh;
+	}
+	#color{
+		margin-bottom: 4vh;
+		justify-content: center;
+	}
+	#font{
+		margin-bottom: 3vh;
+	}
+	#display{
+		font-size: 90%;
+	}
+
+	#display h1{
+		padding-top: 10%;
+	}
+	#three form{
+		margin-top: 3vh;
+		margin-bottom: 3vh;
+		justify-content: center;
+	}
+	#three input{
+		/*margin-bottom: 0vh;*/
+	}
+	#display h1, #display h2,#display h3,#display h4{
+	font-family: Arial;
+	}
+}
+	</style>
+</head>
+<body onload="loadpageco()">
+	<div class="container">
+		<div class="navbar">
+			<img src="logo-white.png" class="logo">
+			<nav>
+				<ul id="menuList">
+					<li><a href="index.html">Home</a></li>
+					<li id="active"><a href="create_e-card.html">Create E-Card</a></li>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+			<img src="menu.png" class="menu-icon" onclick="togglemenu()">
+		</div>
+
+		<main>
+			<div id="title">
+				<h1>Create Your Own Card</h1>
+				<h5>"e-invitation card"</h5>
+			</div>
+					<div id="zero">
+						<div>
+							<a href="cooperate-template.html"><button>go back to choose template</button></a>
+							<a href="corporate-p1.html"><button>full preview</button></a>
+							<a onclick="sendmail()"><button id="myBtn">Send the card to the receiver</button></a>						
+						</div>
+					</div>
+
+					<div id="one">
+
+						<div id="color">
+							<div><label for="colorBG">choose card color: </label><br><input type="color" value="#74c4ec" id="colorBGco"></div><br>
+							<div><label for="colorTitle">choose text color: </label><br><input type="color" value="#4f4f4f" id="colorTitleco"></div>
+						</div>
+
+					</div>
+
+					<div id="two"><!-- <img id="img1" src="design1.png" width="100%" height="100%"> -->
+						<div id="display">
+							<h1 id="dgreetingco"></h1><br>
+							<h2 id="dnameco"></h2><br>
+							<h2 id="ddateco"></h2><br>
+							<h3 id="dtimeco"></h3>
+							<h3 id="daddress1co"></h3><br>
+							<h4 id="daddress2co"></h4><br>
+							<h2 id="daddress3co"></h2>
+						</div>
+					</div>
+
+					<div id="three" >
+						<div><label><h4>you can drag and drop to Greeting below:</h5></label>
+							<div id="design1co"><h5 id=" ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ " draggable="true" ondragstart="drag(event)"> ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ </h5></div>
+							<div id="design2co"><h5 id="Good morning/afternoon/evening/day" draggable="true" ondragstart="drag(event)">Good morning/afternoon/evening/day</h5></div>
+							<div id="design3co"><h5 id="Dear Sir/Madam" draggable="true" ondragstart="drag(event)">Dear Sir/Madam</h5></div><br>
+
+							<form id="form">
+								<label>Greeting: </label>			
+								<input type="text" id="greetingco" placeholder="Enter greeting..." ><br>
+								<label>Event: </label>
+								<input type="text" id="nameco" placeholder="Enter Event..."><br>
+								<label>Receiver name: </label>
+								<input type="text" id="dateco" placeholder="Enter name..."><br>
+								<label>Date: </label>
+								<input type="date" id="timeco" placeholder="Enter time..."><br>
+								<label>Time: </label>
+								<input type="time" id="address1co" placeholder="Enter name..."><br>
+								<label>Location: </label>
+								<input type="address" id="address2co" placeholder="Enter Address..."><br>
+								<label>Your company name: </label>
+								<input type="text" id="address3co" placeholder="Enter company name..."><br>
+							</form>
+
+							<button onclick="previewfco()">save & preview</button>
+							<button onclick="clearformco()">clear</button>
+							<button onclick="loadpreviousfco()">load previous text</button>							
+							<button onclick="loadfco()">load favourite content</button>
+							<button onclick="favouriteco()">mark as favourite content</button>
+						</div>
+					</div>
+
+					
+		</main>
+	</div>
+
+	<script type="text/javascript">
+
+
+		var menuList = document.getElementById("menuList");
+
+		menuList.style.maxHeight = "0px";
+
+		function togglemenu(){
+
+			if(menuList.style.maxHeight == "0px"){
+				menuList.style.maxHeight = "130px";
+			}
+			else{
+				menuList.style.maxHeight = "0px";
+			}
+		}
+
+		function sendmail(){
+			var sendmail = localStorage.getItem("datefo")
+
+
+			if (sendmail == null){
+				alert("the receiver name cannot be empty! don't forget to press 'save & preview' button")
+			}else{
+				alert("you have successfully send your e-invitation card to: " + sendmail)
+			}
+		}
+
+		
+		
+		let colorPickerco = document.getElementById("colorBGco");
+		let box = document.getElementById("two");
+		let output = document.getElementById("two");
+
+		box.style.backgroundColor = colorPickerco.value;
+
+		colorPickerco.addEventListener("input", function(event) {
+  		box.style.backgroundColor = event.target.value;
+		}, false);
+
+
+
+		let colorPickerTco = document.getElementById("colorTitleco");
+		let boxT = document.getElementById("display");
+		let outputC = document.getElementById("display");
+
+		boxT.style.color = colorPickerTco.value;
+
+		colorPickerTco.addEventListener("input", function(event) {
+  		boxT.style.color = event.target.value;
+		}, false);
+
+
+
+		function allowDrop(ev) {
+ 		 	ev.preventDefault();
+		}
+
+		function drag(ev) {
+		  	ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+		  	ev.preventDefault();
+		  	var data = ev.dataTransfer.getData("text");
+ 			ev.target.appendChild(document.getElementById(data));
+		}
+
+
+		function previewfco(){
+
+			var greeting = document.getElementById("greetingco");
+			var name = document.getElementById("nameco");
+			var date = document.getElementById("dateco");
+			var time = document.getElementById("timeco");
+			var address1 = document.getElementById("address1co");
+			var address2 = document.getElementById("address2co");
+			var address3 = document.getElementById("address3co");
+
+
+			let colorPickerco = document.getElementById("colorBGco");
+			localStorage.setItem("bgColorco",colorPickerco.value)
+			
+			let colorPickerTco = document.getElementById("colorTitleco");
+			localStorage.setItem("tColorco",colorPickerTco.value);
+
+			localStorage.setItem("greetingco",greeting.value);
+			localStorage.setItem("nameco",name.value);
+			localStorage.setItem("dateco",date.value);
+			localStorage.setItem("timeco",time.value);
+			localStorage.setItem("address1co",address1.value);
+			localStorage.setItem("address2co",address2.value);
+			localStorage.setItem("address3co",address3.value);
+
+
+			var dgreetingco = document.getElementById("dgreetingco");
+			var dnameco = document.getElementById("dnameco");
+			var ddateco = document.getElementById("ddateco");
+			var dtimeco = document.getElementById("dtimeco");
+			var daddress1co = document.getElementById("daddress1co");
+			var daddress2co = document.getElementById("daddress2co");
+			var daddress3co = document.getElementById("daddress3co");
+
+			dgreetingco.innerHTML = localStorage.getItem("greetingco");
+			dnameco.innerHTML = "Event: "+localStorage.getItem("nameco");
+			ddateco.innerHTML= localStorage.getItem("dateco") +" , You Are invited!";
+			dtimeco.innerHTML= "Date: "+localStorage.getItem("timeco");
+			daddress1co.innerHTML= "Time: "+localStorage.getItem("address1co");
+			daddress2co.innerHTML= "Location: "+localStorage.getItem("address2co");
+			daddress3co.innerHTML= "From: "+ localStorage.getItem("address3co");
+
+			
+			// greeting.value = localStorage.getItem("greeting");
+			// name.value = localStorage.getItem("name");
+			// date.value= localStorage.getItem("date");
+			// time.value= localStorage.getItem("time");
+			// address1.value= localStorage.getItem("address1");
+			// address2.value= localStorage.getItem("address2");
+			// address3.value= localStorage.getItem("address3");
+
+		}
+		function loadpageco(){
+			var greetingco = document.getElementById("greetingco");
+			var nameco = document.getElementById("nameco");
+			var dateco = document.getElementById("dateco");
+			var timeco = document.getElementById("timeco");
+			var address1co = document.getElementById("address1co");
+			var address2co = document.getElementById("address2co");
+			var address3co = document.getElementById("address3co");			
+
+			let colorPickerco = document.getElementById("colorBGco");
+			colorPickerco.value = localStorage.getItem("bgColorco");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("bgColorco");
+			two.style.backgroundColor = color;
+
+			let colorPickerTco = document.getElementById("colorTitleco");
+			colorPickerTco.value = localStorage.getItem("tColorco");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("tColorco");
+			display.style.color = tcolor;
+
+			var dgreetingco = document.getElementById("dgreetingco");
+			var dnameco = document.getElementById("dnameco");
+			var ddateco = document.getElementById("ddateco");
+			var dtimeco = document.getElementById("dtimeco");
+			var daddress1co = document.getElementById("daddress1co");
+			var daddress2co = document.getElementById("daddress2co");
+			var daddress3co = document.getElementById("daddress3co");
+
+			dgreetingco.innerHTML = localStorage.getItem("greetingco");
+			dnameco.innerHTML = "Event: "+localStorage.getItem("nameco");
+			ddateco.innerHTML= localStorage.getItem("dateco") +" , You Are invited!";
+			dtimeco.innerHTML= "Date: "+localStorage.getItem("timeco");
+			daddress1co.innerHTML= "Time: "+localStorage.getItem("address1co");
+			daddress2co.innerHTML= "Location: "+localStorage.getItem("address2co");
+			daddress3co.innerHTML= "From: "+ localStorage.getItem("address3co");
+
+			greetingco.value = localStorage.getItem("greetingco");
+			nameco.value = localStorage.getItem("nameco");
+			dateco.value= localStorage.getItem("dateco");
+			timeco.value= localStorage.getItem("timeco");
+			address1co.value= localStorage.getItem("address1co");
+			address2co.value= localStorage.getItem("address2co");
+			address3co.value= localStorage.getItem("address3co");
+
+		}
+		function clearformco(){
+			document.getElementById("form").reset();
+			document.getElementById("two").reset();
+		}
+
+		function loadpreviousfco(){
+			var greetingco = document.getElementById("greetingco");
+			var nameco = document.getElementById("nameco");
+			var dateco = document.getElementById("dateco");
+			var timeco = document.getElementById("timeco");
+			var address1co = document.getElementById("address1co");
+			var address2co = document.getElementById("address2co");
+			var address3co = document.getElementById("address3co");		
+
+			greetingco.value = localStorage.getItem("greetingco");
+			nameco.value = localStorage.getItem("nameco");
+			dateco.value= localStorage.getItem("dateco");
+			timeco.value= localStorage.getItem("timeco");
+			address1co.value= localStorage.getItem("address1co");
+			address2co.value= localStorage.getItem("address2co");
+			address3co.value= localStorage.getItem("address3co");
+
+			let colorPickerco = document.getElementById("colorBGco");
+			colorPickerco.value = localStorage.getItem("bgColorco");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("bgColorco");
+			two.style.backgroundColor = color;
+
+			let colorPickerTco = document.getElementById("colorTitleco");
+			colorPickerTco.value = localStorage.getItem("tColorco");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("tColorco");
+			display.style.color = tcolor;
+		}
+		function favouriteco(){
+			var greetingco = document.getElementById("greetingco");
+			var nameco = document.getElementById("nameco");
+			var dateco = document.getElementById("dateco");
+			var timeco = document.getElementById("timeco");
+			var address1co = document.getElementById("address1co");
+			var address2co = document.getElementById("address2co");
+			var address3co = document.getElementById("address3co");
+
+			localStorage.setItem("fgreetingco",greetingco.value);
+			localStorage.setItem("fnameco",nameco.value);
+			localStorage.setItem("fdateco",dateco.value);
+			localStorage.setItem("ftimeco",timeco.value);
+			localStorage.setItem("faddress1co",address1co.value);
+			localStorage.setItem("faddress2co",address2co.value);
+			localStorage.setItem("faddress3co",address3co.value);
+
+			let fcolorPickerco = document.getElementById("colorBGco");
+			localStorage.setItem("fbgColorco",colorPickerco.value)
+			
+			let fcolorPickerTco = document.getElementById("colorTitleco");
+			localStorage.setItem("ftColorco",colorPickerTco.value);;
+			// var two = document.getElementById("two");
+			// var color = localStorage.getItem("fbgColor");
+			// two.style.backgroundColor = color;
+
+		}
+		function loadfco(){
+			var greetingco = document.getElementById("greetingco");
+			var nameco = document.getElementById("nameco");
+			var dateco = document.getElementById("dateco");
+			var timeco = document.getElementById("timeco");
+			var address1co = document.getElementById("address1co");
+			var address2co = document.getElementById("address2co");
+			var address3co = document.getElementById("address3co");
+
+			greetingco.value = localStorage.getItem("fgreetingco");
+			nameco.value = localStorage.getItem("fnameco");
+			dateco.value= localStorage.getItem("fdateco");
+			timeco.value= localStorage.getItem("ftimeco");
+			address1co.value= localStorage.getItem("faddress1co");
+			address2co.value= localStorage.getItem("faddress2co");
+			address3co.value= localStorage.getItem("faddress3co");
+
+			let colorPickerco = document.getElementById("colorBGco");
+			colorPickerco.value = localStorage.getItem("fbgColorco");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("fbgColorco");
+			two.style.backgroundColor = color;
+
+			let colorPickerTco = document.getElementById("colorTitleco");
+			colorPickerTco.value = localStorage.getItem("ftColorco");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("ftColorco");
+			display.style.color = tcolor;
+
+		}
+		function dloadfco(){
+			var dgreetingco = document.getElementById("dgreetingco");
+			var dnameco = document.getElementById("dnameco");
+			var ddateco = document.getElementById("ddateco");
+			var dtimeco = document.getElementById("dtimeco");
+			var daddress1co = document.getElementById("daddress1co");
+			var daddress2co = document.getElementById("daddress2co");
+			var daddress3co = document.getElementById("daddress3co");
+
+			dgreetingco.innerHTML = localStorage.getItem("fgreetingco");
+			dnameco.innerHTML = "Event: "+localStorage.getItem("nameco");
+			ddateco.innerHTML= localStorage.getItem("fdateco") +" , You Are invited!";
+			dtimeco.innerHTML= "Date: "+localStorage.getItem("ftimeco");
+			daddress1co.innerHTML= "Time: "+localStorage.getItem("faddress1co");
+			daddress2co.innerHTML= "Location: "+localStorage.getItem("faddress2co");
+			daddress3co.innerHTML= "From: "+ localStorage.getItem("faddress3co");
+
+    		let colorPickerco = document.getElementById("colorBGco");
+			colorPickerco.value = localStorage.getItem("fbgColorco");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("fbgColorco");
+			two.style.backgroundColor = color;
+
+			let colorPickerTco = document.getElementById("colorTitleco");
+			colorPickerTco.value = localStorage.getItem("ftColorco");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("ftColorco");
+			display.style.color = tcolor;
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

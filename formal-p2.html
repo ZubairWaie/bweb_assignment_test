@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>preview-page</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width">
+	<style type="text/css">
+		body{
+			background-color: grey;
+		}
+		main{
+	width: 100%;
+	display: grid;
+	align-items: center;
+	text-align: center;
+	grid-template-columns: 25% 50% 25%;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"title title title"
+	"one two three"
+	"one two three"
+	"zero zero zero"
+}
+#title{
+	grid-area: title;
+}
+#zero{
+	grid-area: zero;
+}
+#one{
+	grid-area: one;
+}
+#two{
+	grid-area: two;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	border: 1px solid #fff;
+	width: 90%;
+	height: 80vh;
+	margin-top: 5vh;
+	margin-left: 5%;
+	margin-right: 5%;
+	background-color: yellow;
+}
+#three{
+	grid-area: three;
+}
+#zero div button{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 2%;
+	padding-left: 2%;
+	margin-right: 3%;
+	margin-left: 3%;
+	color: #000;
+	background-color: #fff;
+	border: 1px solid #000;
+	transition:  0.6s ease;
+}
+#zero div button:hover{
+	color: #fff;
+	border: 1px solid #fff;
+}
+#zero{
+	margin-top: 3%;
+	margin-bottom: 5%;
+}
+#color{
+	margin-bottom: 10vh;
+	justify-content: center;
+}
+#font{
+	margin-bottom: 20vh;
+}
+
+#display h1{
+	padding-top: 6%;
+}
+#display{
+	font-size: 1.5em;
+}
+#display h1, #display h2,#display h3,#display h4{
+	font-family: Arial;
+	}
+img{
+	position: absolute; width: 90%; height: 80vh;margin-left: 5%;margin-right: 5%;align-items: center;
+}
+
+@media only screen and (max-width: 700px){
+body{
+		width: 100%;
+		display: grid;
+		align-items: center;
+		text-align: center;
+		grid-template-columns: 30% 70%;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"title title "	
+		"two two"
+		"zero zero"
+	}
+	#title{
+		grid-area: title;
+	}
+	#zero{
+		grid-area: zero;
+	}
+	#one{
+		grid-area: one;
+
+	}
+	#two{
+		grid-area: two;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		border: 1px solid #fff;
+		width: 60vh;
+		height: 80vh;
+		margin-top: 5vh;
+		margin-left: 5%;
+		margin-right: 5%;
+		background-color: yellow;
+
+	}
+	#three{
+		grid-area: three;
+		margin-bottom: 20px;
+	}
+	.main{
+		margin-top: 3vh;
+		border: 1px solid #fff;
+		transition:  0.7s ease;
+		padding: 2vh 2vh;
+	}
+	#display h1{
+		padding-top: 25vh;
+	}
+	#display{
+	font-size: 1em;
+	}
+	#display h1, #display h2,#display h3,#display h4{
+	font-family: Arial;
+	}
+	img{
+		margin-top: 5vh;
+		margin-left: -6vh;
+		width: 100%; 
+	}
+}
+	</style>
+</head>
+<body onload="loadfo()">
+	<div>
+		<img src="formal1.png">
+	<div id="two"><!-- <img src="design1.png" style="position: absolute; width: 100%; height: 100%;"> -->
+		
+		<div id="display">
+							<h1 id="dgreetingfo"></h1><br>
+							<h2 id="dnamefo"></h2><br>
+							<h2 id="ddatefo"></h2><br>
+							<h3 id="dtimefo"></h3>
+							<h3 id="daddress1fo"></h3><br>
+							<h4 id="daddress2fo"></h4><br>
+							<h2 id="daddress3fo"></h2>
+		</div>
+
+	</div>
+</div>
+	<div id="zero" style="">
+		<div>
+			<a href="formal2.html"><button>back to editing</button></a>
+			<a onclick="sendmail()"><button>Send the card to the receiver</button></a>
+			<a onclick="favouritefo()"><button>mark as favourite content</button></a>							
+		</div>
+	</div>
+
+<script type="text/javascript">
+	function favouritefo(){
+			var greetingfo = document.getElementById("greetingfo");
+			var namefo = document.getElementById("namefo");
+			var datefo = document.getElementById("datefo");
+			var timefo = document.getElementById("timefo");
+			var address1fo = document.getElementById("address1fo");
+			var address2fo = document.getElementById("address2fo");
+			var address3fo = document.getElementById("address3fo");
+
+			localStorage.setItem("fgreetingfo",greetingfo.value);
+			localStorage.setItem("fnamefo",namefo.value);
+			localStorage.setItem("fdatefo",datefo.value);
+			localStorage.setItem("ftimefo",timefo.value);
+			localStorage.setItem("faddress1fo",address1fo.value);
+			localStorage.setItem("faddress2fo",address2fo.value);
+			localStorage.setItem("faddress3fo",address3fo.value);
+
+			let fcolorPickerfo = document.getElementById("colorBGfo");
+			localStorage.setItem("fbgColorfo",colorPickerfo.value)
+			
+			let fcolorPickerTfo = document.getElementById("colorTitlefo");
+			localStorage.setItem("ftColorfo",colorPickerTfo.value);;
+			// var two = document.getElementById("two");
+			// var color = localStorage.getItem("fbgColor");
+			// two.style.backgroundColor = color;
+
+		}
+	function loadfo(){
+			// var greetingfo = document.getElementById("greetingfo");
+			// var namefo = document.getElementById("namefo");
+			// var datefo = document.getElementById("datefo");
+			// var timefo = document.getElementById("timefo");
+			// var address1fo = document.getElementById("address1fo");
+			// var address2fo = document.getElementById("address2fo");
+			// var address3fo = document.getElementById("address3fo");			
+
+			// let colorPickerfo = document.getElementById("colorBGfo");
+			// colorPickerfo.value = localStorage.getItem("bgColorfo");
+			var two = document.getElementById("two");
+			var color = localStorage.getItem("bgColorfo");
+			two.style.backgroundColor = color;
+
+			// let colorPickerTfo = document.getElementById("colorTitlefo");
+			// colorPickerTfo.value = localStorage.getItem("tColorfo");
+			var display = document.getElementById("display");
+			var tcolor = localStorage.getItem("tColorfo");
+			display.style.color = tcolor;
+
+			var dgreetingfo = document.getElementById("dgreetingfo");
+			var dnamefo = document.getElementById("dnamefo");
+			var ddatefo = document.getElementById("ddatefo");
+			var dtimefo = document.getElementById("dtimefo");
+			var daddress1fo = document.getElementById("daddress1fo");
+			var daddress2fo = document.getElementById("daddress2fo");
+			var daddress3fo = document.getElementById("daddress3fo");
+
+			dgreetingfo.innerHTML = localStorage.getItem("greetingfo");
+			dnamefo.innerHTML = "Event: "+localStorage.getItem("namefo");
+			ddatefo.innerHTML= "Dear "+localStorage.getItem("datefo") +" , You Are invited!";
+			dtimefo.innerHTML= "Date: "+localStorage.getItem("timefo");
+			daddress1fo.innerHTML= "Time: "+localStorage.getItem("address1fo");
+			daddress2fo.innerHTML= "Location: "+localStorage.getItem("address2fo");
+			daddress3fo.innerHTML= "From: "+ localStorage.getItem("address3fo");
+
+			// greetingfo.value = localStorage.getItem("greetingfo");
+			// namefo.value = localStorage.getItem("namefo");
+			// datefo.value= localStorage.getItem("datefo");
+			// timefo.value= localStorage.getItem("timefo");
+			// address1fo.value= localStorage.getItem("address1fo");
+			// address2fo.value= localStorage.getItem("address2fo");
+			// address3fo.value= localStorage.getItem("address3fo");
+	
+	}
+	function sendmail(){
+			var sendmail = localStorage.getItem("date")
+
+
+			if (sendmail == null){
+				alert("the receiver name cannot be empty! don't forget to press 'save & preview' button")
+			}else{
+				alert("you have successfully send your e-invitation card to: " + sendmail)
+			}
+		}
+
+</script>
+
+<!-- reference:
+design img: https://www.nicepng.com/png/full/816-8164862_free-png-download-gold-decorative-corners-transparent-gold.png -->
+</body>
+</html>

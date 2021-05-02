@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width">
+	<style type="text/css">
+		main{
+	width: 100%;
+	display: grid;
+	align-items: center;
+	text-align: center;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"title title"
+	"one two"
+	"three three"
+}
+#title{
+	grid-area: title;
+}
+#one{
+	grid-area: one;
+}
+#two{
+	grid-area: two;
+}
+#three{
+	grid-area: three;
+
+	}
+	/*.ballon{
+			height: 50px;
+			width: 50px;
+			background-color: crimson;
+			position: absolute;
+			top: 40%;
+			left: 10%;
+			border-radius: 50%;
+			animation: move 2s ease-in infinite;
+		}
+		.ballon:before{
+			content: "";
+			height: 30px;
+			width: 6px;
+			position: absolute;
+			background-color: white;
+			top:90%;
+			left: 40%;
+		}
+		
+		.ballon:nth-child(2){
+			left: 20%;
+			top: 40%;
+			background-color: green;
+			animation-duration: 6s;
+		}
+		.ballon:nth-child(3){
+			left: 30%;
+			top: 40%;
+			background-color: purple;
+			animation-duration: 4s;
+		}
+		.ballon:nth-child(4){
+			left: 40%;
+			top: 40%;
+			background-color: black;
+			animation-duration: 5s;
+		}
+		.ballon:nth-child(5){
+			left: 50%;
+			top: 40%;
+			background-color: cyan;
+			animation-duration: 3s;
+		}
+		.ballon:nth-child(6){
+			left: 60%;
+			top: 40%;
+			background-color: orange;
+			animation-duration: 6s;
+		}
+		.ballon:nth-child(7){
+			left: 70%;
+			top: 40%;
+			background-color: yellow;
+			animation-duration: 4s;
+		}
+		.ballon:nth-child(8){
+			left: 80%;
+			top: 40%;
+			background-color: blue;
+			animation-duration: 6s;
+		}
+		.ballon:nth-child(9){
+			left: 90%;
+			top: 40%;
+			background-color: crimson;
+			animation-duration: 5s;
+		}
+	@keyframes move{
+			0%{
+				top: 85%;
+			}
+			100%{
+				top:0vh;
+			}*/
+
+}
+@media only screen and (max-width: 700px){
+	.container{
+		width: 100%;
+		min-height: 100vh;
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+	.menu-icon{
+		margin-right: 5%;
+	}
+	main{
+		width: 100%;
+		display: grid;
+		align-items: center;
+		text-align: center;
+		grid-template-columns: 50% 50%;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"title title"
+		"one one"
+		"two two"
+		"three three"
+	}
+	#title{
+		grid-area: title;
+	}
+	#one{
+		grid-area: one;
+	}
+	#two{
+		grid-area: two;
+	}
+	#three{
+		grid-area: three;
+	}
+	.main{
+		margin-top: 3vh;
+		border: 1px solid #fff;
+		transition:  0.7s ease;
+		padding: 2vh 2vh;
+	}
+	}
+	</style>
+</head>
+<body>
+<!-- <div class="ballon"></div>
+<div class="ballon"></div>
+<div class="ballon"></div>
+<div class="ballon"></div>
+<div class="ballon"></div>
+<div class="ballon"></div>
+<div class="ballon"></div>
+<div class="ballon"></div>
+<div class="ballon"></div> -->
+	<div class="container">
+		<div class="navbar">
+			<img src="logo-white.png" class="logo">
+			<nav>
+				<ul id="menuList">
+					<li><a href="index.html">Home</a></li>
+					<li id="active"><a href="create_e-card.html">Create E-Card</a></li>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+			<img src="menu.png" class="menu-icon" onclick="togglemenu()">
+		</div>
+
+		<main>
+			<div id="title">
+				<h1>choose for your card template</h1>
+				<h5>and start the customization of your "e-invitation card"</h5>
+			</div>
+					<a id="one" href="informal1.html">
+						<div class="main">
+							<h1>informal animation card 1</h1>
+							<img src="informal-template1.png">
+						</div>
+					</a>
+
+					<a id="two" href="informal2.html">
+						<div class="main" >
+							<h1>informal animation card 2</h1>
+							<img src="informal-template2.png">
+						</div>
+					</a>
+
+					<a id="three" href="create_e-card.html">
+						<div class="main" >			
+							<h1>go back</h1>
+						</div>
+					</a>
+
+		</main>
+	</div>
+
+	<script type="text/javascript">
+		var menuList = document.getElementById("menuList");
+
+		menuList.style.maxHeight = "0px";
+
+		function togglemenu(){
+
+			if(menuList.style.maxHeight == "0px"){
+				menuList.style.maxHeight = "130px";
+			}
+			else{
+				menuList.style.maxHeight = "0px";
+			}
+		}
+
+	</script>
+
+</body>
+</html>
